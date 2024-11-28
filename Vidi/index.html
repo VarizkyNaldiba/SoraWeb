@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nakoa Cafe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Animasi scroll */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        [data-animate].active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        [data-image-animate] {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        [data-image-animate].active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+            .dark-mode {
+            background-color: #1a202c; /* Warna gelap */
+            color: #f7fafc;          /* Warna terang */
+        }
+        .light-mode {
+            background-color: #f7fafc; /* Warna terang */
+            color: #1a202c;          /* Warna gelap */
+        }
+    </style>
+</head>
+<body class="bg-purple-50 text-purple-900 light-mode">
+
+    <!-- Header -->
+    <header class="bg-purple-700 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <!-- Logo -->
+            <div class="flex items-center space-x-4">
+                <img src="img/logo.jpg" alt="Nakoa Logo" class="w-8 h-8">
+                <h1 class="text-2xl font-bold">Nakoa</h1>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#about" class="hover:text-purple-300">Tentang</a></li>
+                    <li><a href="#services" class="hover:text-purple-300">Layanan</a></li>
+                    <li><a href="#menu" class="hover:text-purple-300">Menu</a></li>
+                    <li><a href="#contact" class="hover:text-purple-300">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mode Toggle -->
+            <button id="theme-toggle" class="flex items-center justify-center w-10 h-10 rounded-full bg-white text-purple-700 shadow">
+                <img id="theme-icon" src="img/sun.png" alt="Light Mode" class="w-6 h-6">
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative bg-cover bg-center h-screen flex items-center justify-center text-center text-white"
+        style="background-image: url('img/image.png');">
+        <div class="bg-black bg-opacity-50 w-full h-full absolute inset-0"></div>
+        <div class="relative z-10 max-w-3xl px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Selamat Datang di Nakoa Cafe</h1>
+            <p class="text-lg md:text-xl mb-8">Tempat terbaik untuk menikmati kopi dan momen berkualitas</p>
+            <a href="#menu" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg">
+                Jelajahi Menu Kami
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold">Tentang Nakoa</h3>
+                <p class="text-purple-700">Kami berkomitmen menghadirkan pengalaman ngopi terbaik dengan biji kopi berkualitas, racikan barista handal, dan ruang yang mengundang.</p>
+            </div>
+            <p class="text-gray-700 leading-relaxed mb-6 text-center">
+                Nakoa adalah tempat sempurna untuk mereka yang ingin menikmati kopi, suasana, dan kreativitas. Berdiri sejak tahun 2020, kami telah melayani ribuan pelanggan setia dengan berbagai pilihan menu mulai dari kopi klasik hingga minuman inovatif. Di setiap cangkir kopi, kami berusaha menghadirkan kehangatan dan rasa yang autentik. Tidak hanya itu, ruang kami didesain untuk mendukung produktivitas, relaksasi, hingga momen spesial Anda. Temukan Nakoa di setiap sudut kota dan biarkan kami menjadi bagian dari cerita Anda.
+            </p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-purple-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold text-purple-900">Menu Populer</h3>
+                <p class="text-purple-700">Nikmati pilihan menu terbaik kami!</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Menu Item 1 -->
+                <div class="bg-white p-4 rounded-lg shadow-md" data-image-animate>
+                    <div class="w-full h-48 bg-gray-200 rounded-lg overflow-hidden">
+                        <img src="img/cappucino.png" alt="Menu Image 1" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="mt-4 text-lg font-semibold text-purple-900">Cappuccino</h4>
+                    <p class="text-purple-700 mt-2">Kopi klasik dengan campuran susu yang creamy.</p>
+                </div>
+
+                <!-- Menu Item 2 -->
+                <div class="bg-white p-4 rounded-lg shadow-md" data-image-animate>
+                    <div class="w-full h-48 bg-gray-200 rounded-lg overflow-hidden">
+                        <img src="img/latte.png" alt="Menu Image 2" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="mt-4 text-lg font-semibold text-purple-900">Matcha Latte</h4>
+                    <p class="text-purple-700 mt-2">Campuran teh hijau matcha dengan susu segar.</p>
+                </div>
+
+                <!-- Menu Item 3 -->
+                <div class="bg-white p-4 rounded-lg shadow-md" data-image-animate>
+                    <div class="w-full h-48 bg-gray-200 rounded-lg overflow-hidden">
+                        <img src="img/mocha.png" alt="Menu Image 3" class="w-full h-full object-cover">
+                    </div>
+                    <h4 class="mt-4 text-lg font-semibold text-purple-900">Croissant</h4>
+                    <p class="text-purple-700 mt-2">Pastry renyah dengan rasa butter yang lezat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 bg-purple-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <h3 class="text-3xl font-bold">Testimoni Pelanggan</h3>
+                <p class="text-purple-200">Apa kata pelanggan tentang Nakoa?</p>
+            </div>
+
+            <div class="relative max-w-3xl mx-auto">
+                <!-- Carousel Content -->
+                <div id="carousel" class="overflow-hidden">
+                    <div class="flex transition-transform duration-500" style="transform: translateX(0);">
+                        <!-- Slide 1 -->
+                        <div class="min-w-full text-center p-6">
+                            <p class="text-lg italic">"Kopinya enak banget, tempatnya juga nyaman!"</p>
+                            <span class="block mt-4 font-bold">- Anisa</span>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="min-w-full text-center p-6">
+                            <p class="text-lg italic">"Perfect untuk ngopi sambil kerja, suasananya tenang."</p>
+                            <span class="block mt-4 font-bold">- Budi</span>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="min-w-full text-center p-6">
+                            <p class="text-lg italic">"Nakoa adalah tempat favorit saya untuk bertemu teman."</p>
+                            <span class="block mt-4 font-bold">- Carla</span>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="min-w-full text-center p-6">
+                            <p class="text-lg italic">"Pilihan menu sangat beragam dan pelayanannya luar biasa."</p>
+                            <span class="block mt-4 font-bold">- Dani</span>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="min-w-full text-center p-6">
+                            <p class="text-lg italic">"Harga terjangkau untuk kualitas sekelas kafe premium."</p>
+                            <span class="block mt-4 font-bold">- Elvira</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button id="prev" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-purple-800 hover:bg-purple-900 text-white p-3 rounded-full focus:outline-none">
+                    &#8592;
+                </button>
+                <button id="next" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-purple-800 hover:bg-purple-900 text-white p-3 rounded-full focus:outline-none">
+                    &#8594;
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-700 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Nakoa Cafe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const carousel = document.getElementById("carousel");
+        const slides = carousel.querySelectorAll("div");
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carousel.querySelector(".flex").style.transform = `translateX(${offset}%)`;
+        }
+
+        prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        });
+
+
+        const elements = document.querySelectorAll("[data-animate]");
+        const imageElements = document.querySelectorAll("[data-image-animate]");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                } else {
+                    entry.target.classList.remove("active");
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach((el) => observer.observe(el));
+        imageElements.forEach((el) => observer.observe(el));
+
+        // Mode Toggle
+        const body = document.body;
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeIcon = document.getElementById("theme-icon");
+
+        themeToggle.addEventListener("click", () => {
+            if (body.classList.contains("light-mode")) {
+                body.classList.remove("light-mode");
+                body.classList.add("dark-mode");
+                themeIcon.src = "img/moon.png";
+                themeIcon.alt = "Dark Mode";
+            } else {
+                body.classList.remove("dark-mode");
+                body.classList.add("light-mode");
+                themeIcon.src = "img/sun.png";
+                themeIcon.alt = "Light Mode";
+            }
+        });
+
+    </script>
+</body>
+</html>
