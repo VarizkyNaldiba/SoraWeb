@@ -1,0 +1,30 @@
+    @keyframes slideUp {
+        0% {
+        transform: translateY(50px); /* Mulai dari bawah */
+        opacity: 0; /* Mulai dari transparan */
+        }
+        100% {
+        transform: translateY(0); /* Posisi akhir di posisi normal */
+        opacity: 1; /* Akhirnya terlihat */
+        }
+    }
+    
+    .animate-slide-up {
+        animation: slideUp 1s ease-out; /* Durasi 1 detik dengan smooth easing */
+    }
+    
+    @keyframes slideDown {
+        0% {
+          transform: translateY(-50px); /* Mulai dari atas */
+          opacity: 0; /* Mulai dari transparan */
+        }
+        100% {
+          transform: translateY(0); /* Posisi akhir di posisi normal */
+          opacity: 1; /* Akhirnya terlihat */
+        }
+      }
+      
+      .animate-slide-down {
+        animation: slideDown 1s ease-out; /* Durasi 1 detik dengan smooth easing */
+      }
+      
